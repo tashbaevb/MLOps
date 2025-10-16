@@ -1,0 +1,42 @@
+services:
+
+  airflow:
+    build: .
+    container_name: airflow
+    restart: always
+    environment:
+      - AIRFLOW_HOME=/opt/mlops/airflow
+    volumes:
+      - .:/opt/mlops
+    ports:
+      - "8080:8080" # Airflow Web UI
+      - "8793:8793" # Airflow log server
+    command: >
+      bash -c "airflow db reset --yes &&
+              airflow db migrate &
+               airflow scheduler &
+               airflow api-server"
+
+  mlflow:
+    build: .
+    container_name: mlflow
+    working_dir: /opt/mlops
+    volumes:
+      - ./data/mlruns:/opt/mlops/data/mlruns
+    ports:
+      - "5000:5000"
+    command: mlflow server --backend-store-uri /opt/mlops/data/mlruns --default-artifact-root /opt/mlops/data/mlruns --host 0.0.0.0 --port 5000
+
+  api:
+    build: .
+    container_name: fastapi
+    working_dir: /opt/mlops
+    volumes:
+      - ./api.py:/opt/mlops/api.py
+      - ./data:/opt/mlops/data
+    ports:
+      - "8000:8000"
+    command: uvicorn api:app --host 0.0.0.0 --port 8000
+    depends_on:
+      - airflow
+      - mlflow

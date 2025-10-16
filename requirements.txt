@@ -1,0 +1,9 @@
+apache-airflow==3.1.0
+apache-airflow-providers-standard==1.9.0
+apache-airflow-task-sdk==1.1.0
+pandas
+scikit-learn
+mlflow==3.4.0
+fastapi
+uvicorn
+joblib
