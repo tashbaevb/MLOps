@@ -7,3 +7,5 @@ mlflow==3.4.0
 fastapi
 uvicorn
 joblib
+pydantic
+graphviz

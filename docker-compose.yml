@@ -1,42 +1,52 @@
 services:
+  mlflow:
+    build: .
+    container_name: mlflow
+    command: mlflow ui --host 0.0.0.0 --port 5000 --backend-store-uri file:/app/data/mlruns
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data/mlruns:/app/data/mlruns
+      - ./data/models:/app/data/models
+    environment:
+      - PYTHONPATH=/app
+
+  api:
+    build: .
+    container_name: api
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - mlflow
+    environment:
+      - BASE_DIR=/app
+      - PYTHONPATH=/app
+
+  watcher:
+    build: .
+    container_name: watcher
+    command: python3 -m api.watcher
+    volumes:
+      - .:/app
+    depends_on:
+      - mlflow
+    environment:
+      - BASE_DIR=/app
+      - PYTHONPATH=/app
 
   airflow:
     build: .
     container_name: airflow
-    restart: always
     environment:
-      - AIRFLOW_HOME=/opt/mlops/airflow
-    volumes:
-      - .:/opt/mlops
+      - AIRFLOW_HOME=/app/airflow
+      - PYTHONPATH=/app
+    command: bash -c "airflow db migrate && airflow users create --username admin --firstname Baitur --lastname Tashbaev --role Admin --email tawbaev777@gmail.com --password admin && airflow api-server --port 8080 & airflow scheduler & airflow dag-processor & airflow triggerer"
     ports:
-      - "8080:8080" # Airflow Web UI
-      - "8793:8793" # Airflow log server
-    command: >
-      bash -c "airflow db reset --yes &&
-              airflow db migrate &
-               airflow scheduler &
-               airflow api-server"
-
-  mlflow:
-    build: .
-    container_name: mlflow
-    working_dir: /opt/mlops
+      - "8080:8080"
     volumes:
-      - ./data/mlruns:/opt/mlops/data/mlruns
-    ports:
-      - "5000:5000"
-    command: mlflow server --backend-store-uri /opt/mlops/data/mlruns --default-artifact-root /opt/mlops/data/mlruns --host 0.0.0.0 --port 5000
-
-  api:
-    build: .
-    container_name: fastapi
-    working_dir: /opt/mlops
-    volumes:
-      - ./api.py:/opt/mlops/api.py
-      - ./data:/opt/mlops/data
-    ports:
-      - "8000:8000"
-    command: uvicorn api:app --host 0.0.0.0 --port 8000
+      - .:/app
     depends_on:
-      - airflow
       - mlflow
