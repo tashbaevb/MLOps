@@ -1,0 +1,10 @@
+artifact_location: file:///Users/baiturtashbaev/Documents/MLOps/data/mlruns/941016808171441176/models/m-3e9487ca0de84ea19fbecd9931acc5ea/artifacts
+creation_timestamp: 1761141028830
+experiment_id: '941016808171441176'
+last_updated_timestamp: 1761141033399
+model_id: m-3e9487ca0de84ea19fbecd9931acc5ea
+model_type: null
+name: model
+source_run_id: 23304802addb4b64b80c775585f89d8c
+status: 2
+status_message: null

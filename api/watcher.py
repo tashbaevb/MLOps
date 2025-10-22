@@ -14,7 +14,7 @@ def watch_dataset():
         logger.warning("Dataset not found.")
         return
     last_mtime = os.path.getmtime(config.DATA_FILE)
-    logger.info(f"👀 Watching for changes in {config.DATA_FILE}")
+    logger.info(f"Watching for changes in {config.DATA_FILE}")
 
     while True:
         time.sleep(10)

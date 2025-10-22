@@ -1,0 +1,12 @@
+{
+  "dataframe_split": {
+    "columns": [
+      "weeks"
+    ],
+    "data": [
+      [
+        10.0
+      ]
+    ]
+  }
+}

@@ -25,7 +25,7 @@ def main():
     mae = mean_absolute_error(y_test, y_pred)
 
     version = datetime.now().strftime("%Y%m%d_%H%M%S")
-    model_path = io_utils.save_model(model, config.MODEL_DIR, version)
+    io_utils.save_model(model, config.MODEL_DIR, version)
 
     mlflow_utils.log_run(model, mae, {"version": version}, "synthetic_demand_forecast")
     logger.info(f"Model trained (MAE={mae:.2f}) and logged to MLflow.")

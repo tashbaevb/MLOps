@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/baiturtashbaev/Documents/MLOps/data/mlruns/941016808171441176/19bc5d0a2c764f58a244d97deb99c038/artifacts
+end_time: 1761141403465
+entry_point_name: ''
+experiment_id: '941016808171441176'
+lifecycle_stage: active
+run_id: 19bc5d0a2c764f58a244d97deb99c038
+run_name: zealous-wren-0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761141400725
+status: 3
+tags: []
+user_id: baiturtashbaev

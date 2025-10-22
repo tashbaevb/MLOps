@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/baiturtashbaev/Documents/MLOps/data/mlruns/941016808171441176/fcca5d2d3dee450faaae393804412359/artifacts
+end_time: 1761141400713
+entry_point_name: ''
+experiment_id: '941016808171441176'
+lifecycle_stage: active
+run_id: fcca5d2d3dee450faaae393804412359
+run_name: luxuriant-fox-885
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761141396343
+status: 3
+tags: []
+user_id: baiturtashbaev

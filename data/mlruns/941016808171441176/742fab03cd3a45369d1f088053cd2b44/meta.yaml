@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/baiturtashbaev/Documents/MLOps/data/mlruns/941016808171441176/742fab03cd3a45369d1f088053cd2b44/artifacts
+end_time: 1761140843591
+entry_point_name: ''
+experiment_id: '941016808171441176'
+lifecycle_stage: active
+run_id: 742fab03cd3a45369d1f088053cd2b44
+run_name: likeable-crow-425
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761140839063
+status: 3
+tags: []
+user_id: baiturtashbaev

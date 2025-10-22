@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/baiturtashbaev/Documents/MLOps/data/mlruns/941016808171441176/663f983dbb92421dae23ff8c457e78cd/artifacts
+end_time: 1761141036168
+entry_point_name: ''
+experiment_id: '941016808171441176'
+lifecycle_stage: active
+run_id: 663f983dbb92421dae23ff8c457e78cd
+run_name: grandiose-pug-706
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761141033471
+status: 3
+tags: []
+user_id: baiturtashbaev

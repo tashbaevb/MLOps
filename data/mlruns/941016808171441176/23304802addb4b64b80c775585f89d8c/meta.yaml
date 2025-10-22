@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/baiturtashbaev/Documents/MLOps/data/mlruns/941016808171441176/23304802addb4b64b80c775585f89d8c/artifacts
+end_time: 1761141033462
+entry_point_name: ''
+experiment_id: '941016808171441176'
+lifecycle_stage: active
+run_id: 23304802addb4b64b80c775585f89d8c
+run_name: marvelous-panda-441
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761141028806
+status: 3
+tags: []
+user_id: baiturtashbaev
